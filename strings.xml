@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Subscription</string>
+    <string name="txt_upgrade_account_for_only">Upgrade your account for only $3.99 a month.</string>
+    <string name="txt_for_only_full">For only $3.99 a month, you will be able to access all content and connect
+        with like-minded Dads.\n\nTap ‘Upgrade’ to subscribe today!
+    </string>
+</resources>
