@@ -185,6 +185,9 @@ class MainActivity : AppCompatActivity(), PurchasesUpdatedListener {
 
                 }
             }
+	    //verify receipt to API code here
+// 		api call
+		
 
         } else if (billingResult.responseCode == BillingClient.BillingResponseCode.USER_CANCELED) {
             Log.d("jai", "USER CANCEL BILLING")
