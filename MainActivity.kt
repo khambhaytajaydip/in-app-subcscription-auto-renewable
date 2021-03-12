@@ -171,23 +171,19 @@ class MainActivity : AppCompatActivity(), PurchasesUpdatedListener {
             val purchaseData =
                 Gson().fromJson(purchases[0].originalJson.toString(), PurchaseData::class.java)
             purchaseData.purchaseToken
-            val consumeParams: ConsumeParams =
-                ConsumeParams.newBuilder().setDeveloperPayload(purchaseData.developerPayload)
-                    .setPurchaseToken(purchaseData.purchaseToken).build()
+		
+       
             Log.d("jai", "urchaseData succcess : " + purchaseData)
             // Acknowledge the purchase if it hasn't already been acknowledged.
             if (!purchaseData.acknowledged) {
                 val acknowledgePurchaseParams = AcknowledgePurchaseParams.newBuilder()
                     .setPurchaseToken(purchaseData.purchaseToken)
                     .build()
+                billingClient.acknowledgePurchase(
+                    acknowledgePurchaseParams
+                ) {
 
-                billingClient.acknowledgePurchase(acknowledgePurchaseParams,
-                    object : AcknowledgePurchaseResponseListener {
-                        override fun onAcknowledgePurchaseResponse(billingResult: BillingResult?) {
-
-                        }
-
-                    })
+                }
             }
 
         } else if (billingResult.responseCode == BillingClient.BillingResponseCode.USER_CANCELED) {
